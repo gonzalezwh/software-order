@@ -1,0 +1,11 @@
+[sql_settings]
+sql_server = "mysql.oit.pdx.edu"
+sql_db = "OITinventory"
+sql_user = "OITinventory_l"
+sql_pass = "ENTER PASSWORD HERE"
+sql_names_table = "software_main"
+sql_vendors_table = "software_vendors"
+sql_os_table = "software_os"
+sql_authorized_table = "software_authorized_purchasers"
+sql_users_table = "software_users"
+sql_orders_table = "software_orders"

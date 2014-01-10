@@ -1,0 +1,2 @@
+http://oit.pdx.edu/software-order/
+SET PASSWORD FOR 'OITinventory_l'@'localhost' = PASSWORD('vagrant');

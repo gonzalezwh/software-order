@@ -1,0 +1,113 @@
+body{
+    font-family:Tahoma, Geneva, sans-serif;
+    font-size:14px;
+    margin:0px;
+    background-color:#e5e6de;
+    display:block;
+    margin-bottom:50px;
+}
+img{
+	border-style:none;
+}
+.support_list li{
+	list-style-type:upper-roman;
+}
+.support_list a{
+	text-decoration:none;
+}
+.support_subtitle{
+	font-size:20px;
+}
+.support_message img{
+	margin-left:20px;
+}
+.support_message{
+	float:left;
+	max-width:100%;
+	margin:10px;
+	padding:20px;
+	border:1px solid #969a99;
+	background-color:white;
+}
+.support_title{
+	font-size:25px;
+}
+.support_text{
+	width:800px;
+	text-align:left;
+	margin-left:10px;
+	font-size:14px;
+}
+.support_table td{
+	border:1px solid  #969a99;
+}
+.support_table td:last-child{
+	border:1px solid  #969a99;
+}
+.support_table th{
+	border:1px solid  #969a99;
+}
+#about_receipt{
+	border:1px solid #969a99;
+}
+#content{
+    
+}
+#header{
+    padding-top:10px;
+    width:100%;
+    color:#313D31;
+    background-color:#8b9822;
+}
+#title{
+	padding-left:10px;
+    font-size:20px;
+    color:#FFFCFD;
+}
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+a:active {text-decoration:none;}
+img{
+	padding-right:10px;
+	vertical-align:middle;
+}	
+#navigation_bar{
+	color:#E6E9D1;
+	padding:0px;
+    padding-left:5px;
+    width:100%;
+    background-color:#7D891F;
+}
+#navigation_bar ul {
+    padding:0px;
+	padding-top:2px;
+}
+#navigation_bar li {
+    display:inline;
+    padding-right:5px;
+    vertical-align:middle;
+}
+#navigation_bar a{
+    text-decoration:none;
+}
+#navigation_bar a:link {color:#E6E9D1;}
+#navigation_bar a:visited {color:#E6E9D1;}
+#navigation_bar a:hover {color:#E6E9D1;}
+table{
+    padding-top:5px;
+    text-align:left;
+    font-size:14px;
+}
+td{
+    border-bottom:1px solid #969a99;
+}
+td:first-child{
+    border-right:1px solid #969a99;
+}
+td:last-child{
+    border-bottom:0px;
+}
+th{
+    border-bottom:1px solid #969a99;
+}
