@@ -34,16 +34,12 @@ $.ajax({
     		var name = data['Authorizers'][i]['FullName'];
     		var department = data['Authorizers'][i]['Department'];
     		var option = $('<option value='+data['Authorizers'][i]['AID']+'>'+department+'-'+name+'</option>');
-    	
-            var software = data['Authorizers'][i]['Software'];
-            var option = $('<option value='+data['Authorizers'][i]['AID']+'>'+sofware+'-'+name+'</option>');
-            
             $('#form_authorizer').append(option);
     	}
 
         //Fill Software select with an OIT maintained (not Banner) list of software.
         for(var soft in data['Software']){
-        $("#form_software").append('<option value="'+soft+'">'+data['Software'][soft]+'</option>');
+        $("#software_list").append('<option value="'+soft+'">'+data['Software'][soft]+'</option>');
         }
 
 
@@ -164,7 +160,7 @@ $(function() {
 			and is of course mimicked server side.
 	*/
     $("#software_add").click(function(){
-        var name = $("#software_input").attr("selected", "selected").val();
+        var name = $("#software_input").val();
         var os = $("#form_os").val();
         if(jQuery.trim(name) == ""){ //empty case
             return;

@@ -155,11 +155,12 @@
                     'AND'=>array(
                         'field'=>'DateInstalled',
                         'operator'=>'<=',
-                        'value'=>$end_date,
+                        'value'=>$end_date, 
                     ),
             )),
             'assoc'=>'false',
-            'orderby'=>'DateOrdered'
+            'orderby'=>'DateOrdered',
+            'order'=>'DESC',
         ));
         foreach($orders as $item){
 			$array['Requested'][] = $item->getFields();
@@ -180,7 +181,8 @@
                     ),
             )),
             'assoc'=>'false',
-            'orderby'=>'DateOrdered'
+            'orderby'=>'DateOrdered',
+            'order'=>'DESC'
         ));
         foreach($orders as $item){
 			$array['Authorized'][] = $item->getFields();
@@ -224,11 +226,12 @@
     
     
 function softwarelist(&$conn){
-    $sql="select SID, NAME, PRICE  from software_main order by name ";
+    $sql="select SID, CONCAT(c.NAME,' ',a.NAME,' (',b.NAME,')') NAME, PRICE  from software_main as a  inner join software_os as b inner join software_vendors as c  on (a.osid = b.osid and c.vid = a.vid) order by CONCAT(a.NAME,' (',b.NAME,')')";
     $result=mysqli_query($conn,$sql);
-    $string = "  ''=>'' ,";
+    $emptyarray = array (''=>'');
 
     $data = array();
+    $data = $emptyarray;
     while ($row = mysqli_fetch_array($result)) {
         $data[$row['NAME']] = $row['NAME'];
     }

@@ -24,8 +24,10 @@
     //Validation rules:
     //All fields must exist in request
     $required_fields = array('os','serials','users','name','odin','phone','email','department','location','authorizer','index','notes','software');
-    if(array_keys($_POST) !== $required_fields){
-        formerror('One or more required form fields are missing.'); 
+    foreach($required_fields as $k => $v){
+        if(!array_key_exists($v, $_POST)){
+            formerror("One or more required form fields are missing. $v"); 
+        }
     }
     //Not-empty fields must have a value
     $not_empty_fields = array('os','serials','name','odin','phone','email');
@@ -111,9 +113,9 @@
     $info['Total Cost'] = '$'.$subtotal.' x '.count($serials).' = $'.$total;
     $info['-'] = '';
 	$ticket = new Ticket();
-    if($subtotal <= 0){
+   if($subtotal <= 0){
         $ticket->Subject = 'Free Software Order for '.$_POST['odin'];
-    }
+ }
     else{
         $info['Authorizer'] = $authorizer->getField('Odin');
         $info['Authorizer Department'] = $authorizer->getField('Department');
@@ -126,8 +128,8 @@
 	$ticket->Queue = 'uss-software-order';
 	$ticket->Requestor = $_POST['name'] . " <" . $_POST['email'] . ">";
     $ticket->setBody($subject, $requester, $info, $keywords);
-	$id = form_submit($api, $ticket);
-	
+  //  $id = form_submit($api, $ticket);
+    $id = 99999;
     //reply to the Authorizer if this is a paid order
     if($subtotal > 0){
 			$text = "Hello,

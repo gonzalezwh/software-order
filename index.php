@@ -36,31 +36,12 @@
                     <div class="helper_text">Enter information about who the order is for here.</div>
                 </label>
             </fieldset> 
-<div id="software_container">
-
-            <fieldset id="software_picker">
-                <legend>Add Software</legend>
-
-                <label for="form_software">
-                    Software: <select id="form_software" name="software"></select>
-                   <button type="button" id="software_add">Add</button> 
-                </label>
-<div id="software_price">Price: </div>
-                    <div id="software_notes"></div>
-                    <div class="helper_text"><a href="software_list.php" target="_blank">View available software</a></div>
-                    
-                    </div>
-<!-- 
-                <div id="software_container">
-                      Software Name: <select id="software_input" name="software"></select>       
-            Software Name: <input type="text" id="software_input"></input><button type="button" id="software_add">Add</button>
-
+                <div id="software_container">  
+                    Software Name: <input type="hidden" id="software_input"><select id="software_list" name="software"></select></input><button type="button" id="software_add">Add</button>
                     <div id="software_price">Price: </div>
 					<div id="software_notes"></div>
                     <div class="helper_text"><a href="software_list.php" target="_blank">View available software</a></div>
-                    
-                    </div>
--->
+                </div>
             </fieldset>
             <fieldset id="contact_info">
                 <legend>Contact Information</legend>

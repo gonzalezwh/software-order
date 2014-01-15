@@ -64,17 +64,15 @@ function SoftwareForm(){
                     var name = data['Authorizers'][i]['FullName'];
                     var department = data['Authorizers'][i]['Department'];
                     var option = $('<option value='+data['Authorizers'][i]['AID']+'>'+department+'-'+name+'</option>');
-                    var software = data['Authorizers'][i]['Software'];
-                    var option = $('<option value='+data['Authorizers'][i]['AID']+'>'+software+'-'+name+'</option>');
                     $('#form_authorizer').append(option);
                 }
 
                 //Fill Software select with an OIT maintained (not Banner) list of software.
-                 $("#form_software").hide();
+                 $("#software_list").hide();
                  for(var soft in data['Software']){
-                 $("#form_software").append('<option value="'+soft+'">'+data['Software'][soft]+'</option>');
+                 $("#software_list").append('<option value="'+soft+'">'+data['Software'][soft]+'</option>');
                  }
-                 $("#form_software").show();
+                 $("#software_list").show();
 
 
                 //Fill Department select with an OIT maintained (not Banner) list of departments.
@@ -198,6 +196,7 @@ function SoftwareForm(){
     	Proxies all UI events so that 'this' behavior stays consistent throughout class members.
     */
     this.prepjQueryEvents = function(){
+        $("#software_list").change($.proxy(this.triggerSoftwareList, this));
         $("#software_input").blur($.proxy(this.triggerSoftwareInput, this));
         $("#software_add").click($.proxy(this.triggerSoftwareAdd,this));
         $(".preview_remove").live('click', $.proxy(this.triggerPreviewRemove,this));
@@ -215,7 +214,15 @@ function SoftwareForm(){
         var input = $("#software_input");
         this.updateSoftwareInputData(input);
     }
-	/*
+	
+    this.triggerSoftwareList = function(){
+        var name = $("#software_list option:selected").text();
+        $("#software_input").val(name);
+        var input = $("#software_input");
+        this.updateSoftwareInputData(input);
+     }
+    
+    /*
 		Function: triggerSoftwareAdd
 		This does some basic error checking of software before adding it to the order.
 		
@@ -224,7 +231,7 @@ function SoftwareForm(){
 	*/
     this.triggerSoftwareAdd = function(e){
         var target = $(e.currentTarget);
-        var name = $("#software_input").attr("selected", "selected").val();
+        var name = $("#software_input").val();
         var os = $("#form_os").val();
         if(jQuery.trim(name) == ""){ //empty case
             return;
