@@ -193,7 +193,7 @@
             $value = $tree['value'];
             $string .= "`$field` $operator '$value'";
             if(is_array($tree['OR'])){
-                $string .= ' AND  ('.$this->getConditionString($tree['AND']).')';
+                $string .= ' OR  ('.$this->getConditionString($tree['OR']).')';
             }
             if(is_array($tree['AND'])){
                 $string .= ' AND ('.$this->getConditionString($tree['AND']).')';
@@ -223,7 +223,7 @@
 			}
 			$object = new $this->rowtype();
 			$orderby = $query['orderby'] ? $query['orderby'] : $object->getIndex();
-			$order = $query['order'] ? $query['order'] : 'DESC';
+            $order = $query['order'] ? $query['order'] : 'DESC';
 			$index = $query['index'] ? $query['index'] : '0';
 			$limit = $query['limit'] ? $query['limit'] : '499';
             $assoc = $query['assoc'] ? $query['assoc'] : 'true';
@@ -237,7 +237,7 @@
                 $condition = 'WHERE `'.$query['field'].'` '.$query['operator']." ".$value;
             }
             elseif($query['condition_tree']){
-                $condition = 'WHERE '.$this->getConditionString($query['condition_tree']);
+              $condition = 'WHERE '.$this->getConditionString($query['condition_tree']);
             }
 			$query = "SELECT * from ".$this->table."\n".
 					 " $condition\n".

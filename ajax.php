@@ -156,12 +156,12 @@
                         'field'=>'DateInstalled',
                         'operator'=>'<=',
                         'value'=>$end_date, 
-                    ),
+                    ), 'AND'=>false
             )),
             'assoc'=>'false',
             'orderby'=>'DateOrdered',
             'order'=>'DESC',
-        ));
+        )); 
         foreach($orders as $item){
 			$array['Requested'][] = $item->getFields();
 		}
