@@ -193,7 +193,7 @@
             $value = $tree['value'];
             $string .= "`$field` $operator '$value'";
             if(is_array($tree['OR'])){
-                $string .= ' OR  ('.$this->getConditionString($tree['OR']).')';
+                $string .= ' OR ('.$this->getConditionString($tree['OR']).')';
             }
             if(is_array($tree['AND'])){
                 $string .= ' AND ('.$this->getConditionString($tree['AND']).')';

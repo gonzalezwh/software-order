@@ -61,6 +61,8 @@ function AdminApp(){
 				var message = $('<div class="error">No results found.</div>');
 				$('#message_box').empty();
 				$('#message_box').append(message);
+                this.tabledata=new Array();
+                this.displayTable();
 				message.fadeOut(2000, function(){this.remove()});
             }
         });
@@ -78,9 +80,11 @@ function AdminApp(){
         $(".remove_button").live('click', $.proxy(this.triggerRemoveButton, this));
         $(".remove_confirm").live('click', $.proxy(this.triggerRemoveConfirm, this));
         $(".remove_deny").live('click', $.proxy(this.triggerRemoveDeny, this));
-        $('#filter_value').blur($.proxy(this.triggerFilter, this));
-        $('#filter_key').change($.proxy(this.triggerFilter, this));
-        $('#filter_function').change($.proxy(this.triggerFilter, this));
+//      $('#filter_value').blur($.proxy(this.triggerFilter, this));
+        $('#filter_submit').click($.proxy(this.triggerFilter,this));
+        $('#filter_reset').click($.proxy(this.triggerReset,this));
+//        $('#filter_key').change($.proxy(this.triggerFilter, this));
+//        $('#filter_function').change($.proxy(this.triggerFilter, this));
         $('#last_page').click($.proxy(this.triggerLastPage, this));
         $('#next_page').click($.proxy(this.triggerNextPage, this));
         $('th').click($.proxy(this.triggerSort, this));
@@ -119,6 +123,16 @@ function AdminApp(){
         this.index += this.increment;
         this.triggerFilter();
     }
+    /*
+        Function: triggerReset
+        Reset the form values
+    */
+    this.triggerReset = function() {
+      $('#filter_value').val("");
+      $('#filter_key').val("LIKE");
+      $('#filter_selection').val("OID");
+    }
+
 	/*
         Function: triggerLastPage
         Decrements the index by the set increment (default 499)
