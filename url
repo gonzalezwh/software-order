@@ -1,3 +1,4 @@
 http://traq.research.pdx.edu/projects/29
 http://oit.pdx.edu/software-order/
 SET PASSWORD FOR 'OITinventory_l'@'localhost' = PASSWORD('vagrant');
+http://softwareorder.dev.research.pdx.edu/

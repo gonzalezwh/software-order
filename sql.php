@@ -223,7 +223,8 @@
 			}
 			$object = new $this->rowtype();
 			$orderby = $query['orderby'] ? $query['orderby'] : $object->getIndex();
-            $order = $query['order'] ? $query['order'] : 'DESC';
+            $order = $query['order'] ? $query['order'] : '';
+            if ($this->table=='software_orders') {$order='DESC';} 
 			$index = $query['index'] ? $query['index'] : '0';
 			$limit = $query['limit'] ? $query['limit'] : '499';
             $assoc = $query['assoc'] ? $query['assoc'] : 'true';
@@ -479,7 +480,6 @@
 			'Odin'=>'',
 			'FullName'=>'',
             'Department'=>'',
-            'Software'=>'',
 		);
 		protected $index = 'AID';
 	}
