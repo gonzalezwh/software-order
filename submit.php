@@ -128,8 +128,8 @@
 	$ticket->Queue = 'uss-software-order';
 	$ticket->Requestor = $_POST['name'] . " <" . $_POST['email'] . ">";
     $ticket->setBody($subject, $requester, $info, $keywords);
-  //  $id = form_submit($api, $ticket);
-    $id = 99999;
+    $id = form_submit($api, $ticket);
+    
     //reply to the Authorizer if this is a paid order
     if($subtotal > 0){
 			$text = "Hello,

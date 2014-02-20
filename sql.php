@@ -224,6 +224,7 @@
 			$object = new $this->rowtype();
 			$orderby = $query['orderby'] ? $query['orderby'] : $object->getIndex();
             $order = $query['order'] ? $query['order'] : '';
+            // The order table has to have a DESC order for the orders reports 
             if ($this->table=='software_orders') {$order='DESC';} 
 			$index = $query['index'] ? $query['index'] : '0';
 			$limit = $query['limit'] ? $query['limit'] : '499';
