@@ -226,7 +226,7 @@
     
     
 function softwarelist(&$conn){
-    $sql="select SID, CONCAT(c.NAME,' ',a.NAME,' (',b.NAME,')') NAME, PRICE  from software_main as a  inner join software_os as b inner join software_vendors as c  on (a.osid = b.osid and c.vid = a.vid) order by CONCAT(a.NAME,' (',b.NAME,')')";
+    $sql="select SID, CONCAT(c.NAME,' ',a.NAME,' (',b.NAME,')') NAME, PRICE  from software_main as a  inner join software_os as b inner join software_vendors as c  on (a.osid = b.osid and c.vid = a.vid) where a.historic != 1 order by CONCAT(c.NAME,' ',a.NAME,' (',b.NAME,')')";
     $result=mysqli_query($conn,$sql);
     $emptyarray = array (''=>'');
 
